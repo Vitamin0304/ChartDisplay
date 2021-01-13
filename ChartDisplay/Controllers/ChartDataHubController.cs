@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChartDisplay.Models;
 
 namespace ChartDisplay.Controllers
 {
@@ -19,10 +20,12 @@ namespace ChartDisplay.Controllers
             _hub = hub;
         }
 
-        [HttpGet]
-        public async Task Get(double time, double data)
+        // POST: api/TodoItems
+        [HttpPost]
+        public async Task<ActionResult<ChartDisplayData>> PostData(ChartDisplayData chartDisplayData)
         {
-            await _hub.Clients.All.SendAsync("ReceiveData", time, data);
+            await _hub.Clients.All.SendAsync("ReceiveChartDisplayData", chartDisplayData);
+            return chartDisplayData;
         }
     }
 }
