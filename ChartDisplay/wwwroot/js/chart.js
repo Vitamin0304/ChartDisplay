@@ -89,7 +89,7 @@ connection.on("ReceiveChartDisplayData", function (chartDisplayData) {
     nowData = nowData.concat(chartDisplayData.data);
 
     dataList.push(nowData);
-    console.log(dataList);
+    //console.log(dataList);
     dataUpdate();
 });
 
@@ -97,6 +97,7 @@ document.getElementById("clear").addEventListener("click", function (event) {
     dataList = [];
     dataUpdate();
 });
+
 
 function dataUpdate() {
     myChart.setOption({

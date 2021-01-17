@@ -28,6 +28,16 @@ namespace ChartDisplay.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public void Index([Bind("Data")] DataSet dataSet)
+        {
+            double[] data = dataSet.Data;
+            Console.WriteLine(data);
+            return ;
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

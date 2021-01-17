@@ -20,7 +20,6 @@ namespace ChartDisplay.Controllers
             _hub = hub;
         }
 
-        // POST: api/TodoItems
         [HttpPost]
         public async Task<ActionResult<ChartDisplayData>> PostData(ChartDisplayData chartDisplayData)
         {

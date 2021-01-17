@@ -1,17 +1,53 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
 
 
-<div id="main" style="width: 100%;height: 600px;"></div>
+<div id="main" style="width: 100%;height: 580px;"></div>
 <div class="row">
-    <div class="col-6">
-        <input type="button" id="clear" value="清空数据" />
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <input type="text" id="k1" value="k1" onchange="setCookies()" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="k2" value="k2" onchange="setCookies()" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="k3" value="k3" onchange="setCookies()" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="k4" value="k4" onchange="setCookies()" class="form-control" />
     </div>
 </div>
+<form id="setDataForm">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <input type="text" id="data1" value="0" onchange="setCookies()" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" id="data2" value="0" onchange="setCookies()" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" id="data3" value="0" onchange="setCookies()" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" id="data4" value="0" onchange="setCookies()" class="form-control" />
+        </div>
+        <div class="col-md-1">
+            <input type="button" id="setData" value="设置参数" />
+        </div>
+        <div class="col-md-1">
+            <input type="button" id="clear" value="清空图表数据" />
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</form>
 
+<script src="https://unpkg.com/flyio/dist/fly.min.js"></script>
 <script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chart.js"></script>
-
+<script src="~/js/setData.js"></script>
 
