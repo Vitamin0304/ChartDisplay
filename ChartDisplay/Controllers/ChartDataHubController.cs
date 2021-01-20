@@ -21,7 +21,7 @@ namespace ChartDisplay.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ChartDisplayData>> PostData(ChartDisplayData chartDisplayData)
+        public async Task<ActionResult<ChartDisplayData>> PostChartData(ChartDisplayData chartDisplayData)
         {
             await _hub.Clients.All.SendAsync("ReceiveChartDisplayData", chartDisplayData);
             return chartDisplayData;

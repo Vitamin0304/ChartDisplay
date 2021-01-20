@@ -13,20 +13,13 @@ document.getElementById("setData").addEventListener("click", function (event) {
     //console.log(data)
     fly.post('api/setdata', { Data:data })
         .then(function (response) {
-            if (response.data != null) {
-                console.log(response.data);
-                var resData = JSON.parse(response.data);
-                console.log(resData);
-                if (resData.success == true) {
-                    alert("数据发送成功！");
-                }
-                else {
-                    alert("数据发送失败！");
-                }
+            if (response.data == "Data have been sent.") {
+                alert("数据发送完成！");
             }
         })
         .catch(function (error) {
             console.log(error);
+            alert("数据发送失败！");
         });
 });
 

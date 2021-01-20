@@ -7,7 +7,7 @@ namespace ChartDisplay.Models
 {
     public class ChartDisplayData
     {
-        public double Time { get; set; }
-        public double[] Data { get; set; }
+        public double time { get; set; }
+        public double[] data { get; set; }
     }
 }
