@@ -19,6 +19,9 @@
     <div class="col-md-2">
         <input type="text" id="k4" value="k4" onchange="setCookies()" class="form-control" />
     </div>
+    <div class="col-md-3">
+        <label><input type="checkbox" id="suspend" />接收数据后暂停显示</label>
+    </div>
 </div>
 <form id="setDataForm">
     <div class="row">
@@ -44,9 +47,7 @@
         <div class="col-md-1"></div>
     </div>
 </form>
-<!--
-    <script src="https://unpkg.com/flyio/dist/fly.min.js"></script>
--->
+
 <script src="~/js/fly.min.js"></script>
 <script src="https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"></script>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

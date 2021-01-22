@@ -33,7 +33,7 @@ namespace ChartDisplay
                 int hostPort = 1883;
                 int timeOut = 120;
                 string userName = "NodeMCU";
-                string password = "xxxxx";
+                string password = "bohan0304";
 
                 var optionsBuilder = new MqttServerOptionsBuilder()
                 .WithDefaultEndpoint()

@@ -3,8 +3,7 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/chartHub").build();
 var myChart = echarts.init(document.getElementById('main'));
 
-var dataList = [[0, 1, 2, 3, 4]];
-dataList.push([1, 2, 3, 4, 5]);
+var dataList = [[0,0,0,0,0]];
 //for (var i = 0; i < 100; i++) {
 //    dataList.push([i, Math.sin(0.05 * 3.1415926 * i)]);
 //}
@@ -98,13 +97,14 @@ document.getElementById("clear").addEventListener("click", function (event) {
     dataUpdate();
 });
 
-
 function dataUpdate() {
-    myChart.setOption({
-        dataset: {
-            source: dataList
-        }
-    });
+    if (document.getElementById('suspend').checked == false) {
+        myChart.setOption({
+            dataset: {
+                source: dataList
+            }
+        });
+    }
 }
 
 connection.start().then(function () {
