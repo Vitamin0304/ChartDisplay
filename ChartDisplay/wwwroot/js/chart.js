@@ -86,14 +86,14 @@ connection.on("ReceiveChartDisplayData", function (chartDisplayData) {
     var nowData = [];
     nowData.push(chartDisplayData.time);
     nowData = nowData.concat(chartDisplayData.data);
-
+    //var data = eval(chartDisplayData);
     dataList.push(nowData);
     //console.log(dataList);
     dataUpdate();
 });
 
 document.getElementById("clear").addEventListener("click", function (event) {
-    dataList = [];
+    dataList = [[0, 0, 0, 0, 0]];
     dataUpdate();
 });
 

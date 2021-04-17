@@ -117,16 +117,17 @@ namespace ChartDisplay
             Debug.WriteLine($"客户端[{e.ClientId}]已成功取消订阅主题[{e.TopicFilter}]！");
         }
 
-        public static async Task OnMqttServer_ApplicationMessageReceived(MqttApplicationMessageReceivedEventArgs e)
+        public static void OnMqttServer_ApplicationMessageReceived(MqttApplicationMessageReceivedEventArgs e)
         {
             string payload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
             string topic = e.ApplicationMessage.Topic;
             if (topic == "/data/chart")
             {
                 ChartDisplayData chartDisplayData = JsonToObject<ChartDisplayData>(payload);
-                await _hub.Clients.All.SendAsync("ReceiveChartDisplayData", chartDisplayData);
+                //double[] chartDisplayData = JsonToObject<double[]>(payload);
+                _hub.Clients.All.SendAsync("ReceiveChartDisplayData", chartDisplayData);
             }
-            Debug.WriteLine($"客户端[{e.ClientId}]>> 主题：{topic} 负荷：{payload} Qos：{e.ApplicationMessage.QualityOfServiceLevel} 保留：{e.ApplicationMessage.Retain}");
+            //Debug.WriteLine($"客户端[{e.ClientId}]>> 主题：{topic} 负荷：{payload} Qos：{e.ApplicationMessage.QualityOfServiceLevel} 保留：{e.ApplicationMessage.Retain}");
         }
 
         public static T JsonToObject<T>(string jsonText)
