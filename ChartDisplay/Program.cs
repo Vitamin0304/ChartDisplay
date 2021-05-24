@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ChartDisplay.Controllers;
 
 namespace ChartDisplay
 {
@@ -20,7 +21,8 @@ namespace ChartDisplay
         {
             var host = CreateHostBuilder(args).Build();
             IHubContext<ChartDataHub> hubContext = (IHubContext<ChartDataHub>)host.Services.GetService(typeof(IHubContext<ChartDataHub>));
-            MyMqttServer.StartMqttServer(hubContext);
+            //MyMqttServer.StartMqttServer(hubContext);
+            SerialPortController.Init(hubContext);
             host.Run();
         }
 

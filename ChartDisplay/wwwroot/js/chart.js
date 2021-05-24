@@ -97,6 +97,55 @@ document.getElementById("clear").addEventListener("click", function (event) {
     dataUpdate();
 });
 
+//引入fly实例
+var fly = new Fly();
+document.getElementById("serialport").addEventListener("click", function (event) {
+    var serialPortSwitch = document.getElementById("serialport");
+    if (serialPortSwitch.value == "开启串口") {
+        fly.get('api/serialport/open')
+            .then(function (response) {
+                var isOpen = JSON.parse(response.data);
+                if (isOpen.open) {
+                    alert("串口已开启！");
+                    serialPortSwitch.value = "关闭串口";
+                }
+                else {
+                    alert("串口开启失败！");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("指令发送失败！");
+            });
+    }
+    else {
+        fly.get('api/serialport/close')
+            .then(function (response) {
+                var isOpen = JSON.parse(response.data);
+                if (isOpen.open == false) {
+                    alert("串口已关闭！");
+                    serialPortSwitch.value = "开启串口";
+                }
+                else {
+                    alert("串口关闭失败！");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("指令发送失败！");
+            });
+    }
+});
+window.onunload = function () {
+    fly.get('api/serialport/close')
+        .then(function (response) {
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        }); 
+}
+
 function dataUpdate() {
     if (document.getElementById('suspend').checked == false) {
         myChart.setOption({

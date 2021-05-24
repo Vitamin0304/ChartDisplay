@@ -10,6 +10,8 @@
     <PackageReference Include="MQTTnet" Version="3.0.13" />
     <PackageReference Include="MQTTnet.AspNetCore" Version="3.0.13" />
     <PackageReference Include="MQTTnet.AspNetCore.AttributeRouting" Version="0.3.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SerialPortStream" Version="2.3.1" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

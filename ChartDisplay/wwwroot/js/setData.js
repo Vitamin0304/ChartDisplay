@@ -11,10 +11,14 @@ document.getElementById("setData").addEventListener("click", function (event) {
     data.push(parseFloat(document.getElementById('data3').value));
     data.push(parseFloat(document.getElementById('data4').value));
     //console.log(data)
-    fly.post('api/setdata', { Data:data })
+    //api/setdata
+    fly.post('api/serialport/setdata', { Data:data })
         .then(function (response) {
             if (response.data == "Data have been sent.") {
                 alert("数据发送完成！");
+            }
+            else {
+                alert("串口关闭，发送失败！");
             }
         })
         .catch(function (error) {
